@@ -1,12 +1,18 @@
 package hello.HelloWorld;
 
-import framework.UrlAnnotation;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-public class HelloWorld {
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-    @UrlAnnotation(url = "/hello")
-    public String sayHello() 
-    {
-        return "Hello, World!";
+public class HelloWorld extends javax.servlet.http.HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<h1>Bonjour, ceci est le premier message !</h1>");
     }
+
 }
