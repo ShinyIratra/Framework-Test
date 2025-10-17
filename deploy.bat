@@ -6,7 +6,7 @@ set BUILD_DIR=build
 set LIB_DIR=lib
 set TOMCAT_WEBAPPS="C:\Users\Iratra\Desktop\apache-tomcat-9.0.106\webapps"
 set SERVLET_API_JAR=%LIB_DIR%\servlet-api.jar
-set FRAMEWORK_JAR=%LIB_DIR%\framework.jar
+set FRAMEWORK_JAR=%LIB_DIR%\framework-1.0.jar
 
 REM Suppression et recréation du dossier temporaire
 if exist "%BUILD_DIR%" rmdir /s /q "%BUILD_DIR%"
