@@ -10,13 +10,25 @@
 
     <!-- Déclaration du servlet -->
     <servlet>
-        <servlet-name>RouterServlet</servlet-name>
-        <servlet-class>router.RouterServlet</servlet-class>
+        <servlet-name>HelloWorld</servlet-name>
+        <servlet-class>hello.HelloWorld.HelloWorld</servlet-class>
     </servlet>
 
     <!-- Mappage du servlet -->
     <servlet-mapping>
-        <servlet-name>RouterServlet</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>HelloWorld</servlet-name>
+        <url-pattern>/world</url-pattern>
+    </servlet-mapping>
+
+    <!-- Déclaration du servlet -->
+    <servlet>
+        <servlet-name>HomeWorld</servlet-name>
+        <servlet-class>hello.HelloWorld.HomeWorld</servlet-class>
+    </servlet>
+
+    <!-- Mappage du servlet -->
+    <servlet-mapping>
+        <servlet-name>HomeWorld</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
 </web-app>
