@@ -1,4 +1,4 @@
-package app.framework;
+package framework;
 
 import org.reflections.Reflections;
 import org.reflections.scanners.SubTypesScanner;
