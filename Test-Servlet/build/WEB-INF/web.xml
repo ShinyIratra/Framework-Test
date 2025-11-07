@@ -11,7 +11,7 @@
     <!-- Déclaration du servlet -->
     <servlet>
         <servlet-name>HelloWorld</servlet-name>
-        <servlet-class>hello.HelloWorld.HelloWorld</servlet-class>
+        <servlet-class>app.hello.HelloWorld.HelloWorld</servlet-class>
     </servlet>
 
     <!-- Mappage du servlet -->
@@ -23,7 +23,7 @@
     <!-- Déclaration du servlet -->
     <servlet>
         <servlet-name>HomeWorld</servlet-name>
-        <servlet-class>hello.HelloWorld.HomeWorld</servlet-class>
+        <servlet-class>app.hello.HelloWorld.HomeWorld</servlet-class>
     </servlet>
 
     <!-- Mappage du servlet -->

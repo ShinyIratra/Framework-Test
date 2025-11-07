@@ -13,6 +13,9 @@ if exist "%BUILD_DIR%" rmdir /s /q "%BUILD_DIR%"
 mkdir "%BUILD_DIR%\WEB-INF\classes"
 mkdir "%BUILD_DIR%\WEB-INF\lib"
 
+REM Copier les fichiers de ressources (ex: Project.config) dans WEB-INF/classes AVANT la compilation
+if exist "src\main\resources" xcopy src\main\resources %BUILD_DIR%\WEB-INF\classes /E /I /Y
+
 REM Compilation des fichiers Java avec le JAR des Servlets et framework
 dir /s /b "%SRC_DIR%\*.java" > sources.txt
 javac -cp "%SERVLET_API_JAR%;%FRAMEWORK_JAR%" -d "%BUILD_DIR%\WEB-INF\classes" @sources.txt
