@@ -1,0 +1,4 @@
+app\framework\App.class
+app\test\Test.class
+app\framework\ProjectScanner.class
+app\framework\ProjectConfig.class
