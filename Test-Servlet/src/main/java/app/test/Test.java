@@ -3,6 +3,8 @@ package app.test;
 import framework.annotation.ControllerAnnot;
 import framework.annotation.UrlAnnot;
 
+import framework.models.ModelView;
+
 @ControllerAnnot
 public class Test
 {
@@ -20,5 +22,18 @@ public class Test
                "<p> ça marche ! </p>" +
                "</body>" +
                "</html>";
+    }
+
+    @UrlAnnot("/jsp_test")
+    public ModelView view()
+    {
+        ModelView mv = new ModelView("test.jsp");
+        return mv;
+    }
+
+    @UrlAnnot("/erreur")
+    public float erreur()
+    {
+        return 0.2f;
     }
 }
