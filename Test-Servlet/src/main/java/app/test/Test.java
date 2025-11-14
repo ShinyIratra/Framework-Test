@@ -28,6 +28,9 @@ public class Test
     public ModelView view()
     {
         ModelView mv = new ModelView("test.jsp");
+        Integer[] numbers = {1, 2, 3, 4, 5};
+        mv.addAttribute("numbers", numbers);
+        mv.addAttribute("error", "Ceci est une erreur");
         return mv;
     }
 
