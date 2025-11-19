@@ -25,10 +25,13 @@ public class Test
                "</html>";
     }
 
-    @UrlAnnot("/user/{id}")
-    public String user()
+    @UrlAnnot("/user/{iratra}/{tafita}")
+    public String user(@RequestParam("iratra") String iratraParam, @RequestParam("tafita") String tafitaParam, String iratra, String tafita)
     {
-        return "<p> ça marche !!!!! </p>";
+        return "<p> Ceci est le message (Param) de Tafita : " + tafitaParam + "</p>" +
+                "<p> Ceci est le message (Param) de Iratra : " + iratraParam + "</p>" +
+                "<p> Ceci est le message de Tafita : " + tafita + "</p>" +
+                "<p> Ceci est le message de Iratra : " + iratra + "</p>";
     }
 
     @UrlAnnot("/post_user")
