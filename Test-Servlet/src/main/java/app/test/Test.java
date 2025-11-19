@@ -24,6 +24,12 @@ public class Test
                "</html>";
     }
 
+    @UrlAnnot("/user/{id}")
+    public String user()
+    {
+        return "<p> ça marche !!!!! </p>";
+    }
+
     @UrlAnnot("/jsp_test")
     public ModelView view()
     {
