@@ -2,6 +2,7 @@ package app.test;
 
 import framework.annotation.ControllerAnnot;
 import framework.annotation.UrlAnnot;
+import framework.annotation.RequestParam;
 
 import framework.models.ModelView;
 
@@ -31,9 +32,11 @@ public class Test
     }
 
     @UrlAnnot("/post_user")
-    public String post_user(String iratra, String tafita)
+    public String post_user(@RequestParam("iratra") String iratraParam, @RequestParam("tafita") String tafitaParam, String iratra, String tafita)
     {
-        return "<p> Ceci est le message de Tafita : " + tafita + "</p>" +
+        return "<p> Ceci est le message (Param) de Tafita : " + tafitaParam + "</p>" +
+                "<p> Ceci est le message (Param) de Iratra : " + iratraParam + "</p>" +
+                "<p> Ceci est le message de Tafita : " + tafita + "</p>" +
                 "<p> Ceci est le message de Iratra : " + iratra + "</p>";
     }
 

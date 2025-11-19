@@ -97,7 +97,8 @@
         <p>Veuillez remplir le formulaire ci-dessous :</p>
         <form action="/TestServlet/post_user" method="post">
             <div class="form-group">
-                <input type="text" name="iratra" placeholder="Entrez votre nom">
+                <input type="text" name="iratra" placeholder="Iratra">
+                <input type="text" name="tafita" placeholder="Tafita">
             </div>
             <button type="submit" class="btn-submit">Envoyer</button>
         </form>
