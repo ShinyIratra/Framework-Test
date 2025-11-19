@@ -18,7 +18,7 @@ if exist "src\main\resources" xcopy src\main\resources %BUILD_DIR%\WEB-INF\class
 
 REM Compilation des fichiers Java avec le JAR des Servlets et framework
 dir /s /b "%SRC_DIR%\*.java" > sources.txt
-javac -cp "%SERVLET_API_JAR%;%FRAMEWORK_JAR%" -d "%BUILD_DIR%\WEB-INF\classes" @sources.txt
+javac -parameters -cp "%SERVLET_API_JAR%;%FRAMEWORK_JAR%" -d "%BUILD_DIR%\WEB-INF\classes" @sources.txt
 del sources.txt
 
 REM Copier les JAR de dépendances dans WEB-INF/lib

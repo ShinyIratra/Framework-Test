@@ -30,6 +30,13 @@ public class Test
         return "<p> ça marche !!!!! </p>";
     }
 
+    @UrlAnnot("/post_user")
+    public String post_user(String iratra, String tafita)
+    {
+        return "<p> Ceci est le message de Tafita : " + tafita + "</p>" +
+                "<p> Ceci est le message de Iratra : " + iratra + "</p>";
+    }
+
     @UrlAnnot("/jsp_test")
     public ModelView view()
     {
