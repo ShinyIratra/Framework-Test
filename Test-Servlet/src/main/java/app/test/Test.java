@@ -3,29 +3,15 @@ package app.test;
 import framework.annotation.ControllerAnnot;
 import framework.annotation.UrlAnnot;
 import framework.annotation.RequestParam;
+import framework.annotation.MethodMapping;
 
 import framework.models.ModelView;
 
 @ControllerAnnot
 public class Test
 {
-    @UrlAnnot("/test")
-    public String oui()
-    {
-        return "<!DOCTYPE html>" +
-               "<html lang='en'>" +
-               "<head>" +
-               "<meta charset='UTF-8'>" +
-               "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" +
-               "<title>yes</title>" +
-               "</head>" +
-               "<body>" +
-               "<p> ça marche ! </p>" +
-               "</body>" +
-               "</html>";
-    }
-
     @UrlAnnot("/user/{iratra}/{tafita}")
+    @MethodMapping("GET")
     public String user(@RequestParam("iratra") String iratraParam, @RequestParam("tafita") String tafitaParam, String iratra, String tafita)
     {
         return "<p> Ceci est le message (Param) de Tafita : " + tafitaParam + "</p>" +
@@ -35,6 +21,7 @@ public class Test
     }
 
     @UrlAnnot("/post_user")
+    @MethodMapping("GET")
     public String post_user(@RequestParam("iratra") String iratraParam, @RequestParam("tafita") String tafitaParam, String iratra, String tafita)
     {
         return "<p> Ceci est le message (Param) de Tafita : " + tafitaParam + "</p>" +
@@ -44,6 +31,7 @@ public class Test
     }
 
     @UrlAnnot("/jsp_test")
+    @MethodMapping("GET")
     public ModelView view()
     {
         ModelView mv = new ModelView("test.jsp");
@@ -53,7 +41,23 @@ public class Test
         return mv;
     }
 
+    @UrlAnnot("/test")
+    @MethodMapping("GET")
+    public String test1()
+    {
+        return "<p> ça marche \"test\" GET </p>";
+    }
+
+    @UrlAnnot("/test")
+    @MethodMapping("POST")
+    public String test2()
+    {
+        System.out.println("Mande !!!!");
+        return "<p> ça marche \"test\" POST </p>";
+    }
+
     @UrlAnnot("/erreur")
+    @MethodMapping("GET")
     public float erreur()
     {
         return 0.2f;
