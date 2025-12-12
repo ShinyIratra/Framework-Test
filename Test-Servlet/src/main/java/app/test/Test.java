@@ -6,8 +6,12 @@ import framework.annotation.RequestParam;
 import framework.annotation.MethodMapping;
 
 import framework.models.ModelView;
+
 import java.util.Map;
 import java.util.Arrays;
+
+import app.model.Employe;
+import app.model.Departement;
 
 @ControllerAnnot
 public class Test
@@ -67,7 +71,7 @@ public class Test
         return mv;
     }
 
-    @UrlAnnot("/formulaire")
+    @UrlAnnot("/formulaire_sprint8")
     @MethodMapping("POST")
     public String formulaire_submit(Map<String, Object[]> parameterMap)
     {
@@ -84,6 +88,30 @@ public class Test
                   .append("</li>");
         }
         
+        result.append("</ul>");
+        return result.toString();
+    }
+
+    @UrlAnnot("/formulaire")
+    @MethodMapping("POST")
+    public String formulaire_submit(Employe e)
+    {
+        StringBuilder result = new StringBuilder("<h1>Employé reçu :</h1>");
+        result.append("<p><strong>ID :</strong> ").append(e.getId()).append("</p>");
+        result.append("<p><strong>Nom :</strong> ").append(e.getName()).append("</p>");
+        result.append("<p><strong>Départements :</strong></p><ul>");
+
+        if (e.getDepartements() != null) {
+            for (Departement d : e.getDepartements()) {
+                result.append("<li>")
+                      .append("<strong>ID :</strong> ").append(d.getId()).append(" ")
+                      .append("<strong>Nom :</strong> ").append(d.getName())
+                      .append("</li>");
+            }
+        } else {
+            result.append("Aucun département");
+        }
+
         result.append("</ul>");
         return result.toString();
     }
