@@ -6,6 +6,8 @@ import framework.annotation.RequestParam;
 import framework.annotation.MethodMapping;
 
 import framework.models.ModelView;
+import java.util.Map;
+import java.util.Arrays;
 
 @ControllerAnnot
 public class Test
@@ -54,6 +56,36 @@ public class Test
     {
         System.out.println("Mande !!!!");
         return "<p> ça marche \"test\" POST </p>";
+    }
+
+    @UrlAnnot("/formulaire")
+    @MethodMapping("GET")
+    public ModelView formulaire_view()
+    {
+        ModelView mv = new ModelView("formulaire.jsp");
+        mv.addAttribute("titre", "Formulaire Test");
+        return mv;
+    }
+
+    @UrlAnnot("/formulaire")
+    @MethodMapping("POST")
+    public String formulaire_submit(Map<String, Object[]> parameterMap)
+    {
+        StringBuilder result = new StringBuilder("<h1>Paramètres reçus :</h1><ul>");
+        
+        for (Map.Entry<String, Object[]> entry : parameterMap.entrySet()) 
+        {
+            String paramName = entry.getKey();
+            Object[] paramValues = entry.getValue();
+            result.append("<li><strong>")
+                  .append(paramName)
+                  .append("</strong> : ")
+                  .append(String.join(", ", Arrays.stream(paramValues).map(Object::toString).toArray(String[]::new)))
+                  .append("</li>");
+        }
+        
+        result.append("</ul>");
+        return result.toString();
     }
 
     @UrlAnnot("/erreur")
