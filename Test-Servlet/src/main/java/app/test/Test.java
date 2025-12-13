@@ -4,11 +4,14 @@ import framework.annotation.ControllerAnnot;
 import framework.annotation.UrlAnnot;
 import framework.annotation.RequestParam;
 import framework.annotation.MethodMapping;
+import framework.annotation.JsonAnnot;
 
 import framework.models.ModelView;
 
 import java.util.Map;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 import app.model.Employe;
 import app.model.Departement;
@@ -94,26 +97,22 @@ public class Test
 
     @UrlAnnot("/formulaire")
     @MethodMapping("POST")
-    public String formulaire_submit(Employe e)
+    @JsonAnnot
+    public Employe formulaire_submit(Employe e)
     {
-        StringBuilder result = new StringBuilder("<h1>Employé reçu :</h1>");
-        result.append("<p><strong>ID :</strong> ").append(e.getId()).append("</p>");
-        result.append("<p><strong>Nom :</strong> ").append(e.getName()).append("</p>");
-        result.append("<p><strong>Départements :</strong></p><ul>");
+        return e;
+    }
 
-        if (e.getDepartements() != null) {
-            for (Departement d : e.getDepartements()) {
-                result.append("<li>")
-                      .append("<strong>ID :</strong> ").append(d.getId()).append(" ")
-                      .append("<strong>Nom :</strong> ").append(d.getName())
-                      .append("</li>");
-            }
-        } else {
-            result.append("Aucun département");
-        }
-
-        result.append("</ul>");
-        return result.toString();
+    @UrlAnnot("/departement")
+    @MethodMapping("GET")
+    @JsonAnnot
+    public List<Departement> getDepartements()
+    {   
+        List<Departement> departements = new ArrayList<>();
+        departements.add(new Departement(1, "Informatique"));
+        departements.add(new Departement(2, "Ressources Humaines"));
+        departements.add(new Departement(3, "Marketing"));
+        return departements;
     }
 
     @UrlAnnot("/erreur")
